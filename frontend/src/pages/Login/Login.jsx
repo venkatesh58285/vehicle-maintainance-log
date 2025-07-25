@@ -8,7 +8,6 @@ import { loginSchema } from '../../utils/validationSchemas';
 import InputField from '../../components/InputField/InputField';
 import Button from '../../components/Button/Button';
 import Toast from '../../components/Toast/Toast';
-import styles from './Login.module.css';
 
 const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm({
@@ -29,28 +28,34 @@ const Login = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <Toast message={toast?.message} type={toast?.type} onDone={hideToast} />
-      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-        <h2>Login</h2>
-        <InputField
-          label="Email"
-          name="email"
-          register={register}
-          error={errors.email}
-        />
-        <InputField
-          label="Password"
-          name="password"
-          type="password"
-          register={register}
-          error={errors.password}
-        />
-        <Button type="submit">Login</Button>
-        <p className={styles.link}>
-          Don't have an account? <Link to="/register">Register here</Link>
-        </p>
-      </form>
+    <div className="h-screen w-full bg-gradient-to-br from-gray-800 to-gray-900 px-4 md:px-8 py-6 flex justify-center items-center">
+      <div className="max-w-screen-2xl mx-auto w-full flex justify-center items-center">
+        <Toast message={toast?.message} type={toast?.type} onDone={hideToast} />
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="bg-gray-800/90 px-9 pt-11 pb-8 rounded-2xl shadow-2xl w-full max-w-md border-l-8 border-sky-300 backdrop-blur text-gray-100 relative animate-fadeIn"
+        >
+          <h2 className="mb-6 text-center text-sky-300 text-2xl tracking-wide font-bold">Login</h2>
+          <InputField
+            label="Email"
+            name="email"
+            register={register}
+            error={errors.email}
+          />
+          <InputField
+            label="Password"
+            name="password"
+            type="password"
+            register={register}
+            error={errors.password}
+          />
+          <Button type="submit">Login</Button>
+          <p className="text-center mt-6 text-gray-400">
+            Don't have an account?{' '}
+            <Link to="/register" className="text-sky-300 font-bold hover:text-white transition-colors">Register here</Link>
+          </p>
+        </form>
+      </div>
     </div>
   );
 };

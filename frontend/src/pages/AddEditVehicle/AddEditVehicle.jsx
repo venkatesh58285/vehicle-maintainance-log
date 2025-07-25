@@ -10,7 +10,6 @@ import Loader from '../../components/Loader/Loader';
 import Toast from '../../components/Toast/Toast';
 import { useToast } from '../../hooks/useToast';
 import useAuth from '../../hooks/useAuth';
-import styles from './AddEditVehicle.module.css';
 
 const AddEditVehicle = () => {
   const { id } = useParams();
@@ -68,17 +67,19 @@ const AddEditVehicle = () => {
   if (loading) return <Loader />;
 
   return (
-    <div className={styles.container}>
-      <Toast message={toast?.message} type={toast?.type} onDone={hideToast} />
-      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-        <h2>{isEdit ? 'Edit Vehicle' : 'Add Vehicle'}</h2>
-        <InputField label="Make" name="make" register={register} error={errors.make} />
-        <InputField label="Model" name="model" register={register} error={errors.model} />
-        <InputField label="Year" name="year" type="number" register={register} error={errors.year} />
-        <InputField label="License Plate" name="licensePlate" register={register} error={errors.licensePlate} />
-        <InputField label="VIN" name="vin" register={register} error={errors.vin} />
-        <Button type="submit">{isEdit ? 'Update' : 'Add'} Vehicle</Button>
-      </form>
+    <div className="h-screen w-full bg-gray-900 text-gray-100 px-4 md:px-8 py-6 flex justify-center items-center">
+      <div className="max-w-screen-2xl mx-auto w-full flex justify-center items-center">
+        <Toast message={toast?.message} type={toast?.type} onDone={hideToast} />
+        <form onSubmit={handleSubmit(onSubmit)} className="bg-gray-800 p-10 rounded-lg shadow-lg w-full max-w-md text-gray-100">
+          <h2 className="mb-5 text-center text-sky-300 text-2xl font-bold">{isEdit ? 'Edit Vehicle' : 'Add Vehicle'}</h2>
+          <InputField label="Make" name="make" register={register} error={errors.make} />
+          <InputField label="Model" name="model" register={register} error={errors.model} />
+          <InputField label="Year" name="year" type="number" register={register} error={errors.year} />
+          <InputField label="License Plate" name="licensePlate" register={register} error={errors.licensePlate} />
+          <InputField label="VIN" name="vin" register={register} error={errors.vin} />
+          <Button type="submit">{isEdit ? 'Update' : 'Add'} Vehicle</Button>
+        </form>
+      </div>
     </div>
   );
 };
