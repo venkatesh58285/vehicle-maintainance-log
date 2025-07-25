@@ -10,7 +10,6 @@ import Loader from '../../components/Loader/Loader';
 import Toast from '../../components/Toast/Toast';
 import { useToast } from '../../hooks/useToast';
 import useAuth from '../../hooks/useAuth';
-import styles from './AddEditMaintenance.module.css';
 
 const AddEditMaintenance = () => {
   const { vehicleId, logId } = useParams();
@@ -69,18 +68,20 @@ const AddEditMaintenance = () => {
   if (loading) return <Loader />;
 
   return (
-    <div className={styles.container}>
-      <Toast message={toast?.message} type={toast?.type} onDone={hideToast} />
-      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-        <h2>{isEdit ? 'Edit Maintenance Log' : 'Add Maintenance Log'}</h2>
-        <InputField label="Title" name="title" register={register} error={errors.title} />
-        <InputField label="Description" name="description" register={register} error={errors.description} />
-        <InputField label="Date" name="date" type="date" register={register} error={errors.date} />
-        <InputField label="Mileage" name="mileage" type="number" register={register} error={errors.mileage} />
-        <InputField label="Cost" name="cost" type="number" register={register} error={errors.cost} />
-        <InputField label="Next Due Date" name="nextDueDate" type="date" register={register} error={errors.nextDueDate} />
-        <Button type="submit">{isEdit ? 'Update' : 'Add'} Log</Button>
-      </form>
+    <div className="h-screen w-full bg-gray-900 text-gray-100 px-4 md:px-8 py-6 flex justify-center items-center">
+      <div className="max-w-screen-2xl mx-auto w-full flex justify-center items-center">
+        <Toast message={toast?.message} type={toast?.type} onDone={hideToast} />
+        <form onSubmit={handleSubmit(onSubmit)} className="bg-gray-800 p-10 rounded-lg shadow-lg w-full max-w-md text-gray-100">
+          <h2 className="mb-5 text-center text-sky-300 text-2xl font-bold">{isEdit ? 'Edit Maintenance Log' : 'Add Maintenance Log'}</h2>
+          <InputField label="Title" name="title" register={register} error={errors.title} />
+          <InputField label="Description" name="description" register={register} error={errors.description} />
+          <InputField label="Date" name="date" type="date" register={register} error={errors.date} />
+          <InputField label="Mileage" name="mileage" type="number" register={register} error={errors.mileage} />
+          <InputField label="Cost" name="cost" type="number" register={register} error={errors.cost} />
+          <InputField label="Next Due Date" name="nextDueDate" type="date" register={register} error={errors.nextDueDate} />
+          <Button type="submit">{isEdit ? 'Update' : 'Add'} Log</Button>
+        </form>
+      </div>
     </div>
   );
 };

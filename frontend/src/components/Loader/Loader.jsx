@@ -1,10 +1,9 @@
 import React from 'react';
-import styles from './Loader.module.css';
 
 const Loader = () => {
   return (
-    <div className={styles.loaderContainer}>
-      <div className={styles.loader}></div>
+    <div className="flex justify-center items-center h-full bg-transparent">
+      <div className="w-10 h-10 border-4 border-gray-800 border-t-sky-300 rounded-full animate-spin"></div>
     </div>
   );
 };

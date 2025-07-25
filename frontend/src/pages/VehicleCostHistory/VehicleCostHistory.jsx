@@ -4,7 +4,6 @@ import axios from 'axios';
 import useAuth from '../../hooks/useAuth';
 import Loader from '../../components/Loader/Loader';
 import Button from '../../components/Button/Button';
-import styles from './VehicleCostHistory.module.css';
 
 const VehicleCostHistory = () => {
   const { vehicleId } = useParams();
@@ -35,28 +34,30 @@ const VehicleCostHistory = () => {
   const totalCost = logs.reduce((sum, log) => sum + (Number(log.cost) || 0), 0);
 
   return (
-    <div className={styles.container}>
-      <h2>Cost History for {vehicle ? `${vehicle.make} ${vehicle.model} (${vehicle.year})` : 'Vehicle'}</h2>
-      <div className={styles.totalCost}>Total Spent: <span>₹{totalCost.toLocaleString()}</span></div>
-      <Link to={`/dashboard`}><Button variant="secondary">Back to Dashboard</Button></Link>
-      {loading ? (
-        <Loader />
-      ) : logs.length === 0 ? (
-        <p className={styles.empty}>No maintenance logs found for this vehicle.</p>
-      ) : (
-        <div className={styles.logList}>
-          {logs.map(log => (
-            <div key={log._id} className={styles.logCard}>
-              <div className={styles.logHeader}>
-                <span className={styles.logDate}>{log.date?.slice(0, 10)}</span>
-                <span className={styles.logCost}>₹{Number(log.cost).toLocaleString()}</span>
+    <div className="h-screen w-full bg-gray-900 text-gray-100 px-4 md:px-8 py-6">
+      <div className="max-w-screen-2xl mx-auto">
+        <h2 className="text-sky-300 mb-4 text-2xl text-center font-bold">Cost History for {vehicle ? `${vehicle.make} ${vehicle.model} (${vehicle.year})` : 'Vehicle'}</h2>
+        <div className="text-lg mb-4 text-center text-white">Total Spent: <span className="text-sky-300 font-bold">₹{totalCost.toLocaleString()}</span></div>
+        <Link to={`/dashboard`}><Button variant="secondary">Back to Dashboard</Button></Link>
+        {loading ? (
+          <Loader />
+        ) : logs.length === 0 ? (
+          <p className="text-center text-gray-400 mt-10">No maintenance logs found for this vehicle.</p>
+        ) : (
+          <div className="mt-6 flex flex-col gap-4">
+            {logs.map(log => (
+              <div key={log._id} className="bg-gray-800 rounded-lg p-5 shadow">
+                <div className="flex justify-between mb-2 text-gray-400 text-base">
+                  <span>{log.date?.slice(0, 10)}</span>
+                  <span className="text-sky-300 font-bold">₹{Number(log.cost).toLocaleString()}</span>
+                </div>
+                <h3 className="font-semibold text-lg mb-1">{log.title}</h3>
+                <p>{log.description}</p>
               </div>
-              <h3>{log.title}</h3>
-              <p>{log.description}</p>
-            </div>
-          ))}
-        </div>
-      )}
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
