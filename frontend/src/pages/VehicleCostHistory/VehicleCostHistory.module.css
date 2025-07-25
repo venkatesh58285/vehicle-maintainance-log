@@ -1,0 +1,59 @@
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #181a20;
+  color: #f1f1f1;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+
+h2 {
+  color: #8ecae6;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.totalCost {
+  font-size: 1.3rem;
+  margin-bottom: 18px;
+  text-align: center;
+  color: #fff;
+}
+.totalCost span {
+  color: #8ecae6;
+  font-weight: bold;
+}
+
+.logList {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.logCard {
+  background: #23262f;
+  border-radius: 8px;
+  padding: 18px 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.14);
+}
+
+.logHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: #b2becd;
+}
+
+.logCost {
+  color: #8ecae6;
+  font-weight: bold;
+}
+
+.empty {
+  text-align: center;
+  color: #888;
+  margin-top: 40px;
+} 

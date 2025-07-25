@@ -1,0 +1,119 @@
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  background: #181a20;
+  min-height: 100vh;
+  color: #f1f1f1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.statsRow {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.statCard {
+  background: #23262f;
+  color: #fff;
+  border-radius: 8px;
+  padding: 24px 32px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  text-align: center;
+  flex: 1;
+}
+
+.statCard h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+  color: #8ecae6;
+}
+
+.statCard p {
+  font-size: 2rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+.mainContent {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+.vehiclesSection h2, .remindersSection h2 {
+  margin-bottom: 20px;
+  color: #8ecae6;
+}
+
+.vehicleList {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.vehicleCard {
+  background: #23262f;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+  color: #f1f1f1;
+}
+
+.cardActions {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.remindersSection ul {
+  list-style: none;
+  padding: 0;
+}
+
+.remindersSection li {
+  background: #22242c;
+  padding: 14px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  color: #f1f1f1;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+.remindersSection strong {
+  color: #8ecae6;
+}
+
+.navbar {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  background: #23262f;
+  padding: 16px 24px;
+  border-radius: 10px;
+  margin-bottom: 28px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.navlink {
+  color: #8ecae6;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.navlink:hover {
+  color: #fff;
+  background: #181a20;
+} 

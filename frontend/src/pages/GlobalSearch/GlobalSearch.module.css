@@ -1,0 +1,40 @@
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #181a20;
+  color: #f1f1f1;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.logList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.logCard {
+  background: #23262f;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.18);
+  color: #f1f1f1;
+}
+
+.cardActions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.empty {
+  text-align: center;
+  color: #888;
+  margin-top: 40px;
+} 
