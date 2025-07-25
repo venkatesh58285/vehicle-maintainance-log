@@ -1,12 +1,54 @@
-# React + Vite
+# Vehicle Maintenance Log Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend for the Vehicle Maintenance Log application, built with React and Vite.
 
-Currently, two official plugins are available:
+## Prerequisites
+- Node.js (v14 or higher recommended)
+- npm (comes with Node.js)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Environment Variables / API Keys
+If you want to use the Gemini AI chatbot feature, you need a Gemini API key. By default, the API key is hardcoded in `src/components/Chatbot.jsx`:
 
-## Expanding the ESLint configuration
+```
+const GEMINI_API_KEY = 'YOUR_GEMINI_API_KEY';
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**For security, you should move your API key to an environment variable or a secure location before deploying.**
+
+## Installation
+
+1. Navigate to the frontend directory:
+   ```sh
+   cd frontend
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+
+## Running the App
+
+- For development:
+  ```sh
+  npm run dev
+  ```
+- To build for production:
+  ```sh
+  npm run build
+  ```
+- To preview the production build:
+  ```sh
+  npm run preview
+  ```
+
+The app will start on the port specified by Vite (default is 5173).
+
+## Project Structure
+- `src/components/` - Reusable UI components
+- `src/pages/` - Application pages
+- `src/context/` - React context providers
+- `src/hooks/` - Custom React hooks
+- `src/utils/` - Utility functions and validation
+
+## License
+MIT
